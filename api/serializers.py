@@ -106,9 +106,11 @@ class LeaderSerializer(serializers.ModelSerializer):
 
 #User Serializers
 class UserTeamSerializer(serializers.ModelSerializer):
+	kids = BitacoraKidSerializer(many=True, read_only=True)
+
 	class Meta:
 		model = Team
-		fields = ['id', 'name', 'grade']
+		fields = ['id', 'name', 'grade', 'kids']
 
 
 class UserSerializer(serializers.ModelSerializer):
