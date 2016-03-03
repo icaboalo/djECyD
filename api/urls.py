@@ -16,5 +16,9 @@ urlpatterns = [
 
 	#Bitacora urls
 	url(r'bitacora/$', views.BitacoraView.as_view(), name='bitacora_api'),
-	url(r'bitacora/(?P<pk>[0-9]+)/$', views.BitacoraDetailView.as_view(), name='bitacora_api_detail')
+	url(r'bitacora/(?P<pk>[0-9]+)/$', views.BitacoraDetailView.as_view(), name='bitacora_api_detail'),
+
+	#Leader urls
+	url(r'leader/$', views.LeaderView.as_view(), name='leader_api'),
+	url(r'leader/(?P<pk>[0-9]+)/$', views.LeaderDetailView.as_view(), name='leader_api_detail'),
 ]

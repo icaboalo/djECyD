@@ -23,13 +23,13 @@ class DefaultKidSerializer(serializers.ModelSerializer):
 		model = Kid
 		fields = ['id', 'name', 'last_name', 'bitacora']
 
-class DefaulSchoolSerializer(serializers.ModelSerializer):
+class DefaultSchoolSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = School
 		fields = ['id', 'name']
 
 class DefaultLeaderSerializer(serializers.ModelSerializer):
-	school = DefaulSchoolSerializer(many=False, read_only=True)
+	school = DefaultSchoolSerializer(many=False, read_only=True)
 
 	class Meta:
 		model = Leader
@@ -42,7 +42,7 @@ class DefaultTeamSerializer(serializers.ModelSerializer):
 
 #Team Serializers
 class TeamSerializer(serializers.ModelSerializer):
-	school = DefaulSchoolSerializer(many=False, read_only=True)
+	school = DefaultSchoolSerializer(many=False, read_only=True)
 	kids = DefaultKidSerializer(many=True, read_only=True)
 	leaders = DefaultLeaderSerializer(many=True, read_only=True)
 	user = DefaultUserSerializer(many=False, read_only=True)
@@ -90,3 +90,16 @@ class BitacoraSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Bitacora
 		fields = ['id', 'assistance', 'week_talk', 'date', 'kid', 'kid_id']
+
+#Leader Serializers
+class LeaderSerializer(serializers.ModelSerializer):
+
+	school = DefaultSchoolSerializer(many=False, read_only=True)
+	team = DefaultTeamSerializer(many=False, read_only=True)
+
+	school_id = serializers.PrimaryKeyRelatedField(write_only=True, queryset=School.objects.all(), source='school')
+	team_id = serializers.PrimaryKeyRelatedField(write_only=True, queryset=School.objects.all(), source='team')
+
+	class Meta:
+		model = Leader
+		fields = ['id', 'name', 'last_name', 'school', 'school_id', 'team', 'team_id']

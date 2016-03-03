@@ -40,7 +40,7 @@ class Leader(models.Model):
 	slug = models.SlugField(max_length=152, blank = True, unique=True)
 
 	#Relations
-	school = models.ForeignKey(School, blank = False)
+	school = models.ForeignKey(School, blank = False, related_name='leaders')
 	team = models.ForeignKey(Team, blank=False, related_name='leaders')
 
 	def __str__(self):

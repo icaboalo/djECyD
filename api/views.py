@@ -41,3 +41,12 @@ class BitacoraView(generics.ListCreateAPIView):
 class BitacoraDetailView(generics.RetrieveUpdateDestroyAPIView):
 	queryset = Bitacora.objects.all()
 	serializer_class = BitacoraSerializer
+
+#Leader
+class LeaderView(generics.ListCreateAPIView):
+	queryset = Leader.objects.all()
+	serializer_class = LeaderSerializer
+
+class LeaderDetailView(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Leader.objects.all()
+	serializer_class = LeaderSerializer
