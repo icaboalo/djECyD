@@ -14,10 +14,11 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from school.views import *
 from team.views import *
+from api import urls as api_urls
 
 urlpatterns = [
     #admin
@@ -53,4 +54,7 @@ urlpatterns = [
     url(r'^leader/new/', LeaderCreate.as_view(), name = 'leader_create'),
     url(r'^leader/update/(?P<slug>[-\w]+)/$', LeaderUpdate.as_view(), name = 'leader_update'),
     url(r'^leader/delete/(?P<slug>[-\w]+)/$', LeaderDelete.as_view(), name = 'leader_delete'),
+
+    #API
+    url(r'^api/v1/', include(api_urls, namespace='api')),
 ]
