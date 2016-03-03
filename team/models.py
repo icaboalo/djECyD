@@ -41,7 +41,7 @@ class Leader(models.Model):
 
 	#Relations
 	school = models.ForeignKey(School, blank = False)
-	team = models.ForeignKey(Team)
+	team = models.ForeignKey(Team, blank=False)
 
 	def __str__(self):
 		return (self.name)
