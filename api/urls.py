@@ -21,4 +21,8 @@ urlpatterns = [
 	#Leader urls
 	url(r'leader/$', views.LeaderView.as_view(), name='leader_api'),
 	url(r'leader/(?P<pk>[0-9]+)/$', views.LeaderDetailView.as_view(), name='leader_api_detail'),
+
+		#Leader urls
+	url(r'user/$', views.UserView.as_view(), name='user_api'),
+	url(r'user/(?P<pk>[0-9]+)/$', views.UserDetailView.as_view(), name='user_api_detail'),
 ]

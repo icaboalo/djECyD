@@ -103,3 +103,17 @@ class LeaderSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Leader
 		fields = ['id', 'name', 'last_name', 'school', 'school_id', 'team', 'team_id']
+
+#User Serializers
+class UserTeamSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Team
+		fields = ['id', 'name', 'grade']
+
+
+class UserSerializer(serializers.ModelSerializer):
+	teams = UserTeamSerializer(many=True, read_only=True)
+
+	class Meta:
+		model = User
+		fields = ['id', 'username', 'first_name', 'last_name', 'email', 'teams']
