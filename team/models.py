@@ -30,8 +30,8 @@ class Team(models.Model):
 class Leader(models.Model):
 
 	class Meta:
-		verbose_name = "Responsable"
-		verbose_name_plural = "Responsables"
+		verbose_name = "Leader"
+		verbose_name_plural = "Leaders"
 
 	#Attributes
 	name = models.CharField(max_length = 50, blank = False)
@@ -48,7 +48,7 @@ class Leader(models.Model):
 
 	def save(self, *args, **kwargs):
 		self.slug = defaultfilters.slugify(self.name + self.last_name)
-		super(Responsable, self).save(*args, **kwargs)
+		super(Leader, self).save(*args, **kwargs)
 
 class Kid(models.Model):
 	class Meta:
