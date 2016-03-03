@@ -1,8 +1,8 @@
 # -*- encoding:utf-8 -*-
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from apps.team.models import *
-from apps.school.models import *
+from team.models import *
+from school.models import *
 
 #DefaultSerializers
 class DefaultUserSerializer(serializers.ModelSerializer):
