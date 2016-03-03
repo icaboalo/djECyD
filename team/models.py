@@ -78,7 +78,7 @@ class Bitacora(models.Model):
         verbose_name_plural = "Bitacoras"
 
     #Relations
-    kid = models.ForeignKey(Kid, related_name='bitacora')
+    kid = models.ForeignKey(Kid, related_name='bitacoras')
 
     #Attributes
     assistance = models.BooleanField(blank=True)
