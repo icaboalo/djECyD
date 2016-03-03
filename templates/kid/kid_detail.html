@@ -1,0 +1,10 @@
+{% extends "header.html" %}
+{% block title %}Detail{% endblock title %}
+{% block h1 %}Kid Detail{% endblock h1 %}
+{% block content %}
+	<p>Name: {{object.name}} {{object.last_name}}</p>
+	<p>Team: {{object.team.name}}</p>
+	<p></p>
+	<a href="{% url 'kid_update' object.slug %}">Update</a>
+	<a href="{% url 'kid_delete' object.slug %}">Delete</a>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends "header.html"%}
+{% block title %}Index{% endblock title %}
+{% block h1 %}Teams{% endblock h1 %}
+{% block content %}
+	{% for school in object_list %}
+		<li><a href="{% url 'school_detail' school.slug %}">{{school.name}}</a></li>
+	{% endfor %}
+	<p></p>
+	<a href="{% url 'school_create' %}">Create new</a>	
+{% endblock content %}

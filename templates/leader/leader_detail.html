@@ -1,0 +1,11 @@
+{% extends "header.html" %}
+{% block title %}Detail{% endblock title %}
+{% block h1 %}Leader Detail{% endblock h1 %}
+{% block content %}
+	<p>Name: {{object.name}} {{object.last_name}}</p>
+	<p>Grade: {{object.grade}}</p>
+	<p>School: {{object.school.name}}</p>
+	<p></p>
+	<a href="{% url 'leader_update' object.slug %}">Update</a>
+	<a href="{% url 'leader_delete' object.slug %}">Delete</a>
+{% endblock content %}

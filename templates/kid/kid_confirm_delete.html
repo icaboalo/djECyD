@@ -1,0 +1,14 @@
+{% extends "header.html" %}
+{% block title %}
+	Delete
+{% endblock title %}
+{% block h1 %}
+	Delete Kid
+{% endblock h1 %}
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		<p>Confirm you want to delete: "{{object.name}} {{object.last_name}}"</p>
+		<input type="submit" value="Delete"></input>
+	</form>
+{% endblock content %}

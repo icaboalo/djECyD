@@ -1,0 +1,9 @@
+{% extends "header.html"%}
+{% block title %}Index{% endblock title %}
+{% block h1 %}Index{% endblock h1 %}
+{% block content %}
+	<li><a href="{% url 'school_index'%}">Schools</a></li>
+	<li><a href="{% url 'team_index' %}">Teams</a></li>
+	<li><a href="{% url 'kid_index' %}">Kids</a></li>
+	<li><a href="{% url 'leader_index' %}">Leader</a></li>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends "header.html" %}
+{% block title %}Teams{% endblock title%}
+{% block h1 %}Teams{% endblock h1%}
+{% block content %}
+	<ul>
+		{% for team in teams %}
+			<li>
+				{{team.name}}
+				<ul>
+					<li>{{team.grade}}</li>
+					<li>{{team.school.name}}</li>	
+					<li>Hermano: {{team.user.first_name}} {{team.user.last_name}}</li>
+					<li>
+						Kids:
+						<ul>
+							{% for kid in team.kid_set.all %}
+								<li>{{kid.name}}</li>
+							{% endfor %}
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<p></p>
+		{% endfor %}
+	</ul>
+
+	<form method="POST">
+		{% csrf_token %}
+		{{form}}
+		<input type="submit" value="save this">
+	</form>
+{% endblock content %}

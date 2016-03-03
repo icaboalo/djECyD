@@ -1,0 +1,12 @@
+{% extends "header.html" %}
+{% block title %}School Detail{% endblock title %}
+{% block h1 %}School Detail{% endblock h1 %}
+{% block content %}
+	<p>Name: {{object.name}}</p>
+	<a href="{% url 'school_update' object.slug %}">Update</a>	
+	<a href="{% url 'school_delete' object.slug %}">Delete</a> 
+{% endblock content %}
+
+
+	</body>
+</html>
