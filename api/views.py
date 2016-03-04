@@ -15,6 +15,7 @@ class TeamView(generics.ListCreateAPIView):
 	filter_backends = (filters.SearchFilter, filters.OrderingFilter,)
 	search_fields = ('name', 'school__name', 'grade')
 	ordering_fields = '__all__'
+	ordering = ('name',)
 
 class TeamDetailView(generics.RetrieveUpdateDestroyAPIView):
 	queryset = Team.objects.all()
