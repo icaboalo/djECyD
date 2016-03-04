@@ -102,7 +102,7 @@ class LeaderSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Leader
-		fields = ['id', 'name', 'last_name', 'school', 'school_id', 'team', 'team_id']
+		fields = ['id', 'name', 'last_name', 'grade', 'school', 'school_id', 'team', 'team_id']
 
 #User Serializers
 class UserTeamSerializer(serializers.ModelSerializer):
