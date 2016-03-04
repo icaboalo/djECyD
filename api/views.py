@@ -1,15 +1,20 @@
 # -*- encoding: utf-8 -*-
+import django_filters
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import generics, status
+from rest_framework import generics, status, filters
 from django.http import Http404
 from .serializers import *
+
 
 #Team
 class TeamView(generics.ListCreateAPIView):
 	queryset = Team.objects.all()
 	serializer_class = TeamSerializer
+	filter_backends = (filters.SearchFilter, filters.OrderingFilter,)
+	search_fields = ('name', 'school__name', 'grade')
+	ordering_fields = '__all__'
 
 class TeamDetailView(generics.RetrieveUpdateDestroyAPIView):
 	queryset = Team.objects.all()

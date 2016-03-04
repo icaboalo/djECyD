@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView, TemplateView #vistas para
 from django.views.generic.edit import CreateView, UpdateView, DeleteView #vistas para modificar
 from .models import * #importamos el modelo
 
-teamFieldList = ['name', 'grade', 'school', 'leader', 'user']
+teamFieldList = ['name', 'grade', 'school', 'user']
 kidFieldList = ['name', 'last_name', 'team']
 leaderFieldList = ['name', 'last_name', 'grade', 'school']
 

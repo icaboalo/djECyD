@@ -4,6 +4,9 @@ from . import views
 urlpatterns = [
 	#Team urls
 	url(r'^team/$', views.TeamView.as_view(), name='team_api'),
+	# url(r'^team/(?P<name>[-\w]+)/$', views.TeamView.as_view, name='team_api'),
+	# url(r'^team/(?P<kids>[-\w]+)/$', views.TeamView.as_view, name='team_api'),
+	# url(r'^team/(?P<school__name>[-\w]+)/$', views.TeamView.as_view, name='team_api'),
 	url(r'^team/(?P<pk>[0-9]+)/$', views.TeamDetailView.as_view(), name='team_api_detail'),
 
 	#School urls
@@ -12,6 +15,8 @@ urlpatterns = [
 
 	#Kid urls
 	url(r'^kid/$', views.KidView.as_view(), name='kid_api'),
+	# url(r'^kid/(?P<name>[-\w]+)/$', views.KidView.as_view, name='kid_api'),
+	# url(r'^kid/(?P<last_name>[-\w]+)/$', views.KidView.as_view, name='kid_api'),
 	url(r'^kid/(?P<pk>[0-9]+)/$', views.KidDetailView.as_view(), name='kid_api_detail'),
 
 	#Bitacora urls
