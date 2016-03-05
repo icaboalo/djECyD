@@ -3,7 +3,7 @@ import django_filters
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import generics, status, filters
+from rest_framework import generics, status, filters, permissions
 from django.http import Http404
 from .serializers import *
 
@@ -85,3 +85,8 @@ class UserView(generics.ListCreateAPIView):
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
 	queryset = User.objects.all()
 	serializer_class = UserSerializer
+
+class UserRegister(generics.CreateAPIView):
+	model = User
+	permission_classes = [permissions.AllowAny]
+	serializer_class = UserRegisterSerializer
