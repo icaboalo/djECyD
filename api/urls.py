@@ -28,7 +28,7 @@ urlpatterns = [
 	url(r'leader/$', api_view.LeaderView.as_view(), name='leader_api'),
 	url(r'leader/(?P<pk>[0-9]+)/$', api_view.LeaderDetailView.as_view(), name='leader_api_detail'),
 
-	#Leader urls
+	#User urls
 	url(r'user/$', api_view.UserView.as_view(), name='user_api'),
 	url(r'user/(?P<pk>[0-9]+)/$', api_view.UserDetailView.as_view(), name='user_api_detail'),
 ]
