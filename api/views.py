@@ -81,6 +81,12 @@ class UserView(generics.ListCreateAPIView):
 	search_fields = ('first_name', 'last_name', 'username')
 	ordering_fields = '__all__'
 	ordering = ('first_name',)
+	def get_queryset(self):
+		"""
+		This view should return only the user login.
+		"""
+		user = self.request.user
+		return User.objects.filter(id=user.id)
 
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
 	queryset = User.objects.all()

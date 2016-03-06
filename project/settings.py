@@ -107,6 +107,7 @@ REST_FRAMEWORK = {
    'DEFAULT_FILTER_BACKENDS': (
        'rest_framework.filters.DjangoFilterBackend',
    ),
+   'SEARCH_PARAM': 'q',
 }
 
 # DATABASES['default'] =  dj_database_url.config()
