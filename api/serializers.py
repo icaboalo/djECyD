@@ -1,6 +1,7 @@
 # -*- encoding:utf-8 -*-
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from validate_email import validate_email
 from team.models import *
 from school.models import *
 
@@ -131,7 +132,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 	def create(self, validate_data):
 		user = User.objects.create(
 			username = validate_data['username'],
-			email = validate_data['email'],
+			email = validate_email['email'],
 			first_name = validate_data['first_name'],
 			last_name = validate_data['last_name'])
 
