@@ -1,12 +1,13 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from . import views as api_view
 from rest_framework.authtoken import views as token_view
 
 urlpatterns = [
+
 	
 	#Token url
 	url(r'register/', api_view.UserRegister.as_view(), name='register'),
-	url(r'^login/', token_view.obtain_auth_token),
+	url(r'^api-token-auth/', token_view.obtain_auth_token),
 
 	#Team urls
 	url(r'^team/$', api_view.TeamView.as_view(), name='team_api'),
@@ -31,4 +32,8 @@ urlpatterns = [
 	#User urls
 	url(r'user/$', api_view.UserView.as_view(), name='user_api'),
 	url(r'user/(?P<pk>[0-9]+)/$', api_view.UserDetailView.as_view(), name='user_api_detail'),
+
+	#DOCS
+	# url(r'docs/', include('rest_framework_docs.urls')),
+	url(r'docs/', include('rest_framework_swagger.urls'))
 ]
